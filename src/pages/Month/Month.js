@@ -4,6 +4,8 @@ import { useMemo, useState } from 'react'
 import dayjs from 'dayjs'
 import { useSelector } from 'react-redux'
 import _ from 'lodash'
+import BillBoard from '../component/billBoard'
+
 const Month = () => {
   const [dateVisible, setDateVisible] = useState(false)
 
@@ -29,6 +31,15 @@ const Month = () => {
        pay,
        income,
        total: pay + income
+    }
+  }, [currentMonthList])
+
+  // billBoard
+  const dayGroup = useMemo(() => {
+    const group = _.groupBy(currentMonthList, item => dayjs(item.date).format('YYYY-MM-DD'))
+    return {
+      group,
+      days: Object.keys(group)
     }
   }, [currentMonthList])
 
@@ -72,8 +83,10 @@ const Month = () => {
             onConfirm={ confirmDate }
           />
         </div>
+          { dayGroup.days.map(item => (<BillBoard key={ item } days={ item } billList={ dayGroup.group[item] } />)) }
       </div>
     </div >
+    
   )
 }
 
