@@ -118,6 +118,20 @@
       "money": -10,
       "date": "2024-07-21T17:51:25.267Z",
       "useFor": "food"
+    },
+    {
+      "id": "6caa",
+      "type": "pay",
+      "money": -12,
+      "date": "2024-09-23T08:26:54.856Z",
+      "useFor": "food"
+    },
+    {
+      "id": "78d3",
+      "type": "pay",
+      "money": -1222,
+      "date": "2024-09-23T08:27:25.603Z",
+      "useFor": "longdistance"
     }
   ]
 }

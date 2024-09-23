@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import './billBoard.scss'
 import { useMemo, useState } from 'react'
 import { billTypeToName } from '@/lang/billData'
-import Icon from './bill_icon.js'
+import Icon from './bill_icon.jsx'
 
 const BillBoard = ({ days, billList }) => {
 
