@@ -21,15 +21,19 @@ const New = () => {
   const [useFor, setUseFor] = useState()
   const dispatch = useDispatch()
   const saveBill = async () => {
-    const data = {
-      type: billType,
-      money: billType === 'pay' ? -money : +money,
-      date: new Date(),
-      useFor
+    console.log(money);
+    
+    if (money) {
+      const data = {
+        type: billType,
+        money: billType === 'pay' ? -money : +money,
+        date: new Date(),
+        useFor
+      }
+      // console.log(data);
+      await dispatch(addBillServer(data))
+      navigate(-1)
     }
-    // console.log(data);
-    await dispatch(addBillServer(data))
-    navigate(-1)
   }
 
   return (
